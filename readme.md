@@ -18,3 +18,21 @@
 实验结果与论文结论基本一致，与预期相符
 
 后续将尝试其他更有效的蒸馏方案
+
+## 使用方法
+
+首先finetune BERT
+```bash
+python ptbert.py
+```
+
+然后把BERT的知识蒸馏到小模型里
+
+需要先解压`data/cache/word2vec.gz`
+
+然后
+```bash
+python distill.py
+```
+
+调整文件中的`use_aug`及以下的参数可以使用论文中提到的其中两种数据增强方式(masking, n-gram sampling)
